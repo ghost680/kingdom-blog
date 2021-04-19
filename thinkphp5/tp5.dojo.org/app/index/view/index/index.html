@@ -1,5 +1,27 @@
 <div class="container">
-  <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum cupiditate sed natus accusantium nemo adipisci maxime distinctio molestiae eaque, totam expedita at quaerat quo placeat necessitatibus officiis. Mollitia, blanditiis pariatur.</h1>
-  <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum cupiditate sed natus accusantium nemo adipisci maxime distinctio molestiae eaque, totam expedita at quaerat quo placeat necessitatibus officiis. Mollitia, blanditiis pariatur.</h1>
-  <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum cupiditate sed natus accusantium nemo adipisci maxime distinctio molestiae eaque, totam expedita at quaerat quo placeat necessitatibus officiis. Mollitia, blanditiis pariatur.</h1>
+  <table class="layui-table">
+    <colgroup>
+      <col width="150" />
+      <col width="200" />
+      <col />
+    </colgroup>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>昵称</th>
+        <th>加入时间</th>
+        <th>签名</th>
+      </tr>
+    </thead>
+    <tbody>
+      {volist name="data" id="vo"}
+      <tr>
+        <td>{$vo.id}</td>
+        <td>{$vo.username}</td>
+        <td>{$vo.email}</td>
+        <td>{$vo.price}</td>
+      </tr>
+      {/volist}
+    </tbody>
+  </table>
 </div>
