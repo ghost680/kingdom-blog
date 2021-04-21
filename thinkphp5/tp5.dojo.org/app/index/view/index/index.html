@@ -16,12 +16,21 @@
     <tbody>
       {volist name="data" id="vo"}
       <tr>
+        <td>{$vo['id']}</td>
+        <td>{$vo['username']}</td>
+        <td>{$vo['email']}</td>
+        <td>{$vo['price']}</td>
+      </tr>
+      {/volist}
+
+      {foreach $data as $key=>$vo } 
+      <tr>
         <td>{$vo.id}</td>
         <td>{$vo.username}</td>
         <td>{$vo.email}</td>
         <td>{$vo.price}</td>
       </tr>
-      {/volist}
+      {/foreach}
     </tbody>
   </table>
 </div>
