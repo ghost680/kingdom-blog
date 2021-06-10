@@ -1,45 +1,19 @@
 <?php
-
-class Animal
-{
-  static function can()
-  {
-    echo 'this function will be re-write in the children';
+// 声明一个Car对象
+class Car {
+  static $chejiahao = 'ABDJK123-9123132AAA-BBB';
+  static function getChejiahao() {
+    echo self::$chejiahao . '<br/>'; // 类内部访问
   }
-  function test()
-  {
-    return 'aaaaaaa';
+  public function test() {
+    self:: getChejiahao();
   }
 }
 
-$a = new Animal();
-echo $a->test();
-echo Animal::can();
+// 实例化对象
+$car = new Car();
+$car->getChejiahao();
+$car->test();
 
-class Site
-{
-  /* 成员变量 */
-  var $url;
-  var $title;
-
-  /* 成员函数 */
-  function setUrl($par)
-  {
-    $this->url = $par;
-  }
-
-  function getUrl()
-  {
-    echo $this->url . PHP_EOL;
-  }
-
-  function setTitle($par)
-  {
-    $this->title = $par;
-  }
-
-  function getTitle()
-  {
-    echo $this->title . PHP_EOL;
-  }
-}
+// 在类外部访问
+Car::getChejiahao();
