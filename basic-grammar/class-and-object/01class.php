@@ -1,19 +1,37 @@
 <?php
-// 声明一个Car对象
-class Car {
-  static $chejiahao = 'ABDJK123-9123132AAA-BBB';
-  static function getChejiahao() {
-    echo self::$chejiahao . '<br/>'; // 类内部访问
-  }
-  public function test() {
-    self:: getChejiahao();
+
+// 创建Database抽象类
+abstract class Database
+{
+  abstract function connect($host, $username, $pwd, $db);
+  abstract function query($sql);
+  abstract function fetch();
+  abstract function close();
+  function test()
+  {
+    echo 'Test';
   }
 }
 
-// 实例化对象
-$car = new Car();
-$car->getChejiahao();
-$car->test();
-
-// 在类外部访问
-Car::getChejiahao();
+// 定义一个MySQL类，继承自抽象基类Database
+class mysql extends Database
+{
+  protected $conn;
+  protected $query;
+  function connect($host, $username, $pwd, $db)
+  {
+    $this->conn = new mysqli($host, $username, $pwd, $db);
+  }
+  function query($sql)
+  {
+    return $this->conn->query($sql);
+  }
+  function fetch()
+  {
+    return $this->query->fetch();
+  }
+  function close()
+  {
+    $this->conn->close();
+  }
+}
